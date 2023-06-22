@@ -30,7 +30,8 @@
 <!-- bis hier alles original aus Initializer-->
 
 
-<!-- to prevent this error:
+<!-- to be able to connect to mysql and to
+ prevent this error:
 BeanCreationException: Error creating bean with 
 name 'dataSource' defined in class path resource 
 [org/springframework/boot/autoconfigure/jdbc/
