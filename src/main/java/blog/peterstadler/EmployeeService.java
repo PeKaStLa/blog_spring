@@ -18,8 +18,8 @@ public class EmployeeService {
         return repo.findAll();
     }
      
-    public void save(Employee employee) {
-        repo.save(employee);
+    public Employee save(Employee employee) {
+        return repo.save(employee);
     }
      
     public Employee get(Integer id) {

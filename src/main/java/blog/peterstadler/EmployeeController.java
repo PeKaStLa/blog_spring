@@ -32,8 +32,8 @@ public Employee get(@PathVariable Integer id) {
 
     // RESTful API method for Create operation
 @PostMapping("/employee")
-public void save(@RequestBody Employee employee) {
-    service.save(employee);
+public Employee save(@RequestBody Employee employee) {
+    return service.save(employee);
 }
 
     // RESTful API method for Update operation
