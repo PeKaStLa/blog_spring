@@ -9,20 +9,20 @@ import org.springframework.stereotype.Service;
  
 @Service
 @Transactional
-public class EmployeeService {
+public class CardService {
  
     @Autowired
-    private EmployeeRepository repo;
+    private CardRepository repo;
      
-    public List<Employee> listAll() {
+    public List<Card> listAll() {
         return repo.findAll();
     }
      
-    public Employee save(Employee employee) {
-        return repo.save(employee);
+    public Card save(Card card) {
+        return repo.save(card);
     }
      
-    public Employee get(Integer id) {
+    public Card get(Integer id) {
         return repo.findById(id).get();
     }
      

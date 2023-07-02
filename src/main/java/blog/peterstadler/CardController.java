@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/")
 @CrossOrigin(origins = "http://localhost:3000")
-public class EmployeeController {
+public class CardController {
  
     @Autowired
-    private EmployeeService service;
+    private CardService service;
      
     // RESTful API methods for Retrieval operations
-@GetMapping("/employees")
-public List<Employee> list() {
+@GetMapping("/cards")
+public List<Card> list() {
     return service.listAll();
 }
 
-@GetMapping("/employee/{id}")
-public Employee get(@PathVariable Integer id) {
+@GetMapping("/cards/{id}")
+public Card get(@PathVariable Integer id) {
     return service.get(id);
 }
 
 
     // RESTful API method for Create operation
-@PostMapping("/employee")
-public Employee save(@RequestBody Employee employee) {
-    return service.save(employee);
+@PostMapping("/cards")
+public Card save(@RequestBody Card card) {
+    return service.save(card);
 }
 
     // RESTful API method for Update operation
  
     // RESTful API method for Delete operation
-@DeleteMapping("/employee/{id}")
+@DeleteMapping("/cards/{id}")
 public void delete(@PathVariable Integer id) {
     service.delete(id);
 }
