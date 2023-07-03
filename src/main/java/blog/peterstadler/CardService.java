@@ -14,6 +14,7 @@ public class CardService {
     @Autowired
     private CardRepository repo;
      
+    //findAll records and return them as a list
     public List<Card> listAll() {
         return repo.findAll();
     }
@@ -22,6 +23,8 @@ public class CardService {
         return repo.save(card);
     }
 
+    //use the ID to find an already exisiting record in the DB.
+    //Then replace the other attributes with their new values.
     public Card replace(Card newCard, Integer id) {
         // find the current card-record by ID
         // then replace old Titel, old Text and old Position. Then save this as a new record.
@@ -39,6 +42,7 @@ public class CardService {
 
     }
      
+    //find one record by the ID and return only this one record
     public Card get(Integer id) {
         return repo.findById(id).get();
     }
