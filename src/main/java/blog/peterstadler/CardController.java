@@ -32,12 +32,17 @@ public Card get(@PathVariable Integer id) {
 
     // RESTful API method for Create operation
 @PostMapping("/cards")
-public Card save(@RequestBody Card card) {
-    return service.save(card);
+public Card create(@RequestBody Card card) {
+    return service.create(card);
 }
 
     // RESTful API method for Update operation
  
+    @PutMapping("/cards/{id}")
+    public Card replace(@RequestBody Card newCard, @PathVariable Integer id) {
+        return service.replace(newCard, id);
+    }
+
     // RESTful API method for Delete operation
 @DeleteMapping("/cards/{id}")
 public void delete(@PathVariable Integer id) {

@@ -18,8 +18,23 @@ public class CardService {
         return repo.findAll();
     }
      
-    public Card save(Card card) {
+    public Card create(Card card) {
         return repo.save(card);
+    }
+
+    public Card replace(Card newCard, Integer id) {
+
+        return repo.findById(id)
+            .map(card -> {
+                card.setTitle(newCard.getTitle());
+                card.setText(newCard.getText());
+                card.setPosition(newCard.getPosition());
+                return repo.save(card);
+            })
+            .orElseGet(() -> {
+                return repo.save(newCard);
+            });
+
     }
      
     public Card get(Integer id) {
