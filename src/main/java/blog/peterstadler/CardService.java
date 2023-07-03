@@ -23,7 +23,8 @@ public class CardService {
     }
 
     public Card replace(Card newCard, Integer id) {
-
+        // find the current card-record by ID
+        // then replace old Titel, old Text and old Position. Then save this as a new record.
         return repo.findById(id)
             .map(card -> {
                 card.setTitle(newCard.getTitle());
@@ -31,6 +32,7 @@ public class CardService {
                 card.setPosition(newCard.getPosition());
                 return repo.save(card);
             })
+            //If findByID is unsuccessful, then just save it as a new record.
             .orElseGet(() -> {
                 return repo.save(newCard);
             });
